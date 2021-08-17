@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      
+        <nav class="container-fluid">
+          <div class="row align-items-center">
+            <a href="index.html" class="nav-link col-1">Home</a></li>
+            <a href="#" class="nav-link col-1">Sales</a>
+            <p class="col-9 logo">Pharmacy 102</p>
+          </div>
+        </nav>
+    </header>
+
+    <main>
+        <form id="registration">
+            <div class="reg-input loginBlock">
+                <input type="text" class="form-control" name="login" placeholder="Login" id="login" />
+            </div>
+            <div class="reg-input emailBlock">
+                <input type="email" class="form-control" name="email" placeholder="Email" id="email" />
+            </div>
+            <div class="reg-input passwordBlock">
+                <input type="password" class="form-control" name="password" placeholder="Password" id="password"/>
+            </div>
+            <div class="reg-input confirmPasswordBlock">
+                <input type="password" class="form-control" name="confirm" placeholder="Confirm password" id="confirmPassword"/>
+            </div>
+
+            <div class="text-center" style="padding: 10px;">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+
+        </form>
+    </main>
+
+    <footer>
+        <div class="row justify-content-end align-items-center">
+            <p class="col-2">Contact us:</p>
+            <p class="col-2">+38 099-099-0909</p>
+            <p class="col-2">ourmail@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+		var validLogin=false;
+        var validEmail=false;
+        var validPassword=false;
+        var validConfirmPassword=false;
+
+            $("form").submit(function(event){
+
+                event.preventDefault();
+                var login =$("#login").val();
+                var email = $("#email").val();
+                var password = $("#password").val();
+                var confirmPassword =$("#confirmPassword").val();
+            });
+            
+            if(login==""){
+                validLogin=false;
+            }
+            else{
+                validLogin=true;
+            }
+
+            if(email==""){
+                validEmail=false;
+            }
+            else{
+                validEmail=true;
+            }
+
+            if(password==""){
+                validPassword=false;
+            }
+            else{
+                validPassword=true;
+            }
+
+            if(password=== confirmPassword){
+                validConfirmPassword=true;
+            }
+            else{
+                validConfirmPassword=false;
+            }
+
+            if(validLogin==true&&validPassword==true&&validEmail==true&&validConfirmPassword==true){
+                $("form").unbind('submit').submit();
+            }
+        });
+    </script>
+
+</body>
+</html>
